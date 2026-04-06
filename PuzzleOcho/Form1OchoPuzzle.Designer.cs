@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LBL00 = new System.Windows.Forms.Label();
             this.LBL01 = new System.Windows.Forms.Label();
             this.LBL02 = new System.Windows.Forms.Label();
@@ -37,6 +38,10 @@
             this.LBL22 = new System.Windows.Forms.Label();
             this.LBL21 = new System.Windows.Forms.Label();
             this.LBL20 = new System.Windows.Forms.Label();
+            this.LBLContador = new System.Windows.Forms.Label();
+            this.BTNDesordenar = new System.Windows.Forms.Button();
+            this.TMRReloj = new System.Windows.Forms.Timer(this.components);
+            this.BTNGenerarHijos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LBL00
@@ -165,11 +170,51 @@
             this.LBL20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBL20.Click += new System.EventHandler(this.LBL20_Click);
             // 
+            // LBLContador
+            // 
+            this.LBLContador.BackColor = System.Drawing.SystemColors.Highlight;
+            this.LBLContador.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.LBLContador.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LBLContador.Location = new System.Drawing.Point(402, 111);
+            this.LBLContador.Name = "LBLContador";
+            this.LBLContador.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LBLContador.Size = new System.Drawing.Size(88, 83);
+            this.LBLContador.TabIndex = 9;
+            this.LBLContador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LBLContador.Click += new System.EventHandler(this.TMRReloj_Tick);
+            // 
+            // BTNDesordenar
+            // 
+            this.BTNDesordenar.Location = new System.Drawing.Point(396, 67);
+            this.BTNDesordenar.Name = "BTNDesordenar";
+            this.BTNDesordenar.Size = new System.Drawing.Size(107, 23);
+            this.BTNDesordenar.TabIndex = 10;
+            this.BTNDesordenar.Text = "Desordenar";
+            this.BTNDesordenar.UseVisualStyleBackColor = true;
+            this.BTNDesordenar.Click += new System.EventHandler(this.BTNDesordenar_Click);
+            // 
+            // TMRReloj
+            // 
+            this.TMRReloj.Tick += new System.EventHandler(this.TMRReloj_Tick);
+            // 
+            // BTNGenerarHijos
+            // 
+            this.BTNGenerarHijos.Location = new System.Drawing.Point(396, 211);
+            this.BTNGenerarHijos.Name = "BTNGenerarHijos";
+            this.BTNGenerarHijos.Size = new System.Drawing.Size(107, 23);
+            this.BTNGenerarHijos.TabIndex = 11;
+            this.BTNGenerarHijos.Text = "Generar Hijos";
+            this.BTNGenerarHijos.UseVisualStyleBackColor = true;
+            this.BTNGenerarHijos.Click += new System.EventHandler(this.BTNGenerarHijos_Click);
+            // 
             // Form1OchoPuzzle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(574, 450);
+            this.Controls.Add(this.BTNGenerarHijos);
+            this.Controls.Add(this.BTNDesordenar);
+            this.Controls.Add(this.LBLContador);
             this.Controls.Add(this.LBL22);
             this.Controls.Add(this.LBL21);
             this.Controls.Add(this.LBL20);
@@ -196,6 +241,11 @@
         private System.Windows.Forms.Label LBL22;
         private System.Windows.Forms.Label LBL21;
         private System.Windows.Forms.Label LBL20;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LBLContador;
+        private System.Windows.Forms.Button BTNDesordenar;
+        private System.Windows.Forms.Timer TMRReloj;
+        private System.Windows.Forms.Button BTNGenerarHijos;
     }
 }
 
