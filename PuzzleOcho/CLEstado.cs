@@ -343,6 +343,13 @@ namespace PuzzleOcho
             }
             return Respuesta;
         }
+
+        public bool EsFinal()
+        { 
+                bool res=false;
+                return res; 
+        }
+
         #endregion
     }
 }

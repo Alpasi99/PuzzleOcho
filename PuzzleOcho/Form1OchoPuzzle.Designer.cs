@@ -42,6 +42,10 @@
             this.BTNDesordenar = new System.Windows.Forms.Button();
             this.TMRReloj = new System.Windows.Forms.Timer(this.components);
             this.BTNGenerarHijos = new System.Windows.Forms.Button();
+<<<<<<< HEAD
+            this.BTNEsFinal = new System.Windows.Forms.Button();
+=======
+>>>>>>> 9e05d463920023ecbdbd46c0899a3010fd697365
             this.SuspendLayout();
             // 
             // LBL00
@@ -207,11 +211,28 @@
             this.BTNGenerarHijos.UseVisualStyleBackColor = true;
             this.BTNGenerarHijos.Click += new System.EventHandler(this.BTNGenerarHijos_Click);
             // 
+<<<<<<< HEAD
+            // BTNEsFinal
+            // 
+            this.BTNEsFinal.Location = new System.Drawing.Point(396, 240);
+            this.BTNEsFinal.Name = "BTNEsFinal";
+            this.BTNEsFinal.Size = new System.Drawing.Size(107, 23);
+            this.BTNEsFinal.TabIndex = 12;
+            this.BTNEsFinal.Text = "Es Final";
+            this.BTNEsFinal.UseVisualStyleBackColor = true;
+            this.BTNEsFinal.Click += new System.EventHandler(this.BTNEsFinal_Click);
+            // 
+=======
+>>>>>>> 9e05d463920023ecbdbd46c0899a3010fd697365
             // Form1OchoPuzzle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 450);
+<<<<<<< HEAD
+            this.Controls.Add(this.BTNEsFinal);
+=======
+>>>>>>> 9e05d463920023ecbdbd46c0899a3010fd697365
             this.Controls.Add(this.BTNGenerarHijos);
             this.Controls.Add(this.BTNDesordenar);
             this.Controls.Add(this.LBLContador);
@@ -246,6 +267,10 @@
         private System.Windows.Forms.Button BTNDesordenar;
         private System.Windows.Forms.Timer TMRReloj;
         private System.Windows.Forms.Button BTNGenerarHijos;
+<<<<<<< HEAD
+        private System.Windows.Forms.Button BTNEsFinal;
+=======
+>>>>>>> 9e05d463920023ecbdbd46c0899a3010fd697365
     }
 }
 
