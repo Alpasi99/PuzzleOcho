@@ -63,6 +63,7 @@ namespace PuzzleOcho
             List<CLEstado> Respuesta = new List<CLEstado>();
             String pos0 = "";
             int[,] aux = new int[3, 3];
+
             for (int i = 0; i < 3; i++)
                 for (int j = 0; j < 3; j++)
                     if (this._tablero[i, j] == 0)
@@ -343,6 +344,25 @@ namespace PuzzleOcho
             }
             return Respuesta;
         }
+
+        public bool EsFinal()
+        {
+            bool res = false;
+            if (_tablero[0, 0] == 1 &&
+                _tablero[0, 1] == 2 &&
+                _tablero[0, 2] == 3 &&
+                _tablero[1, 0] == 4 &&
+                _tablero[1, 1] == 5 &&
+                _tablero[1, 2] == 6 &&
+                _tablero[2, 0] == 7 &&
+                _tablero[2, 1] == 8 &&
+                _tablero[2, 2] == 0)
+            {
+                res = true;
+            }
+            return res;
+        }
+
         #endregion
     }
 }
