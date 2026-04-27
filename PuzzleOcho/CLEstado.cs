@@ -342,6 +342,10 @@ namespace PuzzleOcho
                     Respuesta.Add(A);
                     break;
             }
+            foreach (CLEstado H in Respuesta)
+            {
+                H.nivel = this._nivel + 1;
+            }
             return Respuesta;
         }
 
@@ -362,7 +366,94 @@ namespace PuzzleOcho
             }
             return res;
         }
+        public bool EsIgual(CLEstado Otro)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (this._tablero[i, j] != Otro._tablero[i, j])
+                    {
+                        return false;
+                    }
+                }
+            }
 
+            return true;
+        }
+
+        public static List<CLEstado> TratarRepetidos(List<CLEstado> Hijos, List<CLEstado> Abiertos, List<CLEstado> Cerrados)
+        {
+            List<CLEstado> Depurados = new List<CLEstado>();
+            bool repetido;
+
+            foreach (CLEstado H in Hijos)
+            {
+                repetido = false;
+
+                foreach (CLEstado C in Cerrados)
+                {
+                    if (H.EsIgual(C))
+                    {
+                        repetido = true;
+                        break;
+                    }
+                }
+
+                if (!repetido)
+                {
+                    foreach (CLEstado A in Abiertos)
+                    {
+                        if (H.EsIgual(A))
+                        {
+                            repetido = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!repetido)
+                {
+                    Depurados.Add(H);
+                }
+            }
+
+            return Depurados;
+        }
+
+        public static List<CLEstado> AnchuraPrioritaria(CLEstado Inicial)
+        {
+            List<CLEstado> Solucion = new List<CLEstado>();
+            List<CLEstado> Abiertos = new List<CLEstado>();
+            List<CLEstado> Cerrados = new List<CLEstado>();
+            List<CLEstado> Hijos = new List<CLEstado>();
+
+            CLEstado Actual = Inicial;
+            Abiertos.Add(Inicial);
+
+            while (Abiertos.Count > 0)
+            {
+                Actual = Abiertos[0];
+                Abiertos.RemoveAt(0);
+                Cerrados.Add(Actual);
+
+                if (Actual.EsFinal())
+                {
+                    Solucion.Add(Actual);
+                    return Solucion;
+                }
+
+                Hijos = Actual.GenerarHijos();
+                Hijos = TratarRepetidos(Hijos, Abiertos, Cerrados);
+
+                foreach (CLEstado H in Hijos)
+                {
+                    Abiertos.Add(H);
+                }
+            }
+
+            return Solucion;
+        }
         #endregion
     }
 }
