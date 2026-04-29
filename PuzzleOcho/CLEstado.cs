@@ -11,6 +11,8 @@ namespace PuzzleOcho
         #region Campos
         private int[,] _tablero;
         private int _nivel;
+        private CLEstado _padre;
+
         #endregion
 
         #region Propiedades
@@ -24,6 +26,11 @@ namespace PuzzleOcho
             get => _nivel;
             set => _nivel = value;
         }
+        public CLEstado padre
+        {
+            get => _padre;
+            set => _padre = value;
+        }
         #endregion
 
         #region Constructor
@@ -34,6 +41,7 @@ namespace PuzzleOcho
                 for (int j = 0; j < 3; j++)
                     this._tablero[i, j] = 0;
             this._nivel = 0;
+            this._padre = null;
         }
         public CLEstado(int p00, int p01, int p02,
                         int p10, int p11, int p12,
@@ -51,6 +59,7 @@ namespace PuzzleOcho
             this._tablero[1, 2] = p12;
             this._tablero[2, 2] = p22;
             this._nivel = 0;
+            this._padre = null;
         }
 
 
@@ -63,7 +72,6 @@ namespace PuzzleOcho
             List<CLEstado> Respuesta = new List<CLEstado>();
             String pos0 = "";
             int[,] aux = new int[3, 3];
-
             for (int i = 0; i < 3; i++)
                 for (int j = 0; j < 3; j++)
                     if (this._tablero[i, j] == 0)
@@ -83,6 +91,8 @@ namespace PuzzleOcho
                                              this._tablero[2, 0],
                                              this._tablero[2, 1],
                                              this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     A = new CLEstado(this._tablero[1, 0],
                                      this._tablero[0, 1],
@@ -93,6 +103,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     break;
                 case "01":
@@ -105,6 +117,8 @@ namespace PuzzleOcho
                                          this._tablero[2, 0],
                                          this._tablero[2, 1],
                                          this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
 
                     A = new CLEstado(this._tablero[0, 0],
@@ -116,6 +130,8 @@ namespace PuzzleOcho
                                          this._tablero[2, 0],
                                          this._tablero[2, 1],
                                          this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
 
                     A = new CLEstado(this._tablero[0, 0],
@@ -127,6 +143,8 @@ namespace PuzzleOcho
                                          this._tablero[2, 0],
                                          this._tablero[2, 1],
                                          this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     break;
                 case "02":
@@ -139,6 +157,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     A = new CLEstado(this._tablero[0, 0],
                                      this._tablero[0, 1],
@@ -149,6 +169,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     break;
                 case "10":
@@ -161,6 +183,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
 
                     A = new CLEstado(this._tablero[0, 0],
@@ -172,6 +196,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
 
                     A = new CLEstado(this._tablero[0, 0],
@@ -183,6 +209,8 @@ namespace PuzzleOcho
                                      this._tablero[1, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     break;
                 case "11":
@@ -195,6 +223,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
 
                     A = new CLEstado(this._tablero[0, 0],
@@ -206,6 +236,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
 
                     A = new CLEstado(this._tablero[0, 0],
@@ -217,6 +249,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     A = new CLEstado(this._tablero[0, 0],
                                      this._tablero[0, 1],
@@ -227,6 +261,9 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[1, 1],
                                      this._tablero[2, 2]);
+
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     break;
                 case "12":
@@ -239,6 +276,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
 
                     A = new CLEstado(this._tablero[0, 0],
@@ -250,6 +289,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
 
                     A = new CLEstado(this._tablero[0, 0],
@@ -261,6 +302,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[1, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     break;
                 case "20":
@@ -273,6 +316,8 @@ namespace PuzzleOcho
                                      this._tablero[1, 0],
                                      this._tablero[2, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     A = new CLEstado(this._tablero[0, 0],
                                      this._tablero[0, 1],
@@ -283,6 +328,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 1],
                                      this._tablero[2, 0],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     break;
                 case "21":
@@ -295,6 +342,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 1],
                                      this._tablero[2, 0],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
 
                     A = new CLEstado(this._tablero[0, 0],
@@ -306,6 +355,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[1, 1],
                                      this._tablero[2, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
 
                     A = new CLEstado(this._tablero[0, 0],
@@ -317,6 +368,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 2],
                                      this._tablero[2, 1]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     break;
                 case "22":
@@ -329,6 +382,8 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 1],
                                      this._tablero[1, 2]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     A = new CLEstado(this._tablero[0, 0],
                                      this._tablero[0, 1],
@@ -339,12 +394,10 @@ namespace PuzzleOcho
                                      this._tablero[2, 0],
                                      this._tablero[2, 2],
                                      this._tablero[2, 1]);
+                    A.nivel = this.nivel + 1;
+                    A.padre = this;
                     Respuesta.Add(A);
                     break;
-            }
-            foreach (CLEstado H in Respuesta)
-            {
-                H.nivel = this._nivel + 1;
             }
             return Respuesta;
         }
@@ -366,93 +419,35 @@ namespace PuzzleOcho
             }
             return res;
         }
-        public bool EsIgual(CLEstado Otro)
+
+
+        public bool EsIgual(CLEstado a)
         {
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (this._tablero[i, j] != Otro._tablero[i, j])
+                    if (a.tablero[i, j] != this.tablero[i, j])
                     {
                         return false;
                     }
                 }
             }
-
             return true;
         }
-
-        public static List<CLEstado> TratarRepetidos(List<CLEstado> Hijos, List<CLEstado> Abiertos, List<CLEstado> Cerrados)
+        public static List<CLEstado> ReconstruirCamino(CLEstado Final)
         {
-            List<CLEstado> Depurados = new List<CLEstado>();
-            bool repetido;
+            List<CLEstado> Camino = new List<CLEstado>();
+            CLEstado Aux = Final;
 
-            foreach (CLEstado H in Hijos)
+            while (Aux != null)
             {
-                repetido = false;
-
-                foreach (CLEstado C in Cerrados)
-                {
-                    if (H.EsIgual(C))
-                    {
-                        repetido = true;
-                        break;
-                    }
-                }
-
-                if (!repetido)
-                {
-                    foreach (CLEstado A in Abiertos)
-                    {
-                        if (H.EsIgual(A))
-                        {
-                            repetido = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (!repetido)
-                {
-                    Depurados.Add(H);
-                }
+                Camino.Add(Aux);
+                Aux = Aux.padre;
             }
 
-            return Depurados;
-        }
-
-        public static List<CLEstado> AnchuraPrioritaria(CLEstado Inicial)
-        {
-            List<CLEstado> Solucion = new List<CLEstado>();
-            List<CLEstado> Abiertos = new List<CLEstado>();
-            List<CLEstado> Cerrados = new List<CLEstado>();
-            List<CLEstado> Hijos = new List<CLEstado>();
-
-            CLEstado Actual = Inicial;
-            Abiertos.Add(Inicial);
-
-            while (Abiertos.Count > 0)
-            {
-                Actual = Abiertos[0];
-                Abiertos.RemoveAt(0);
-                Cerrados.Add(Actual);
-
-                if (Actual.EsFinal())
-                {
-                    Solucion.Add(Actual);
-                    return Solucion;
-                }
-
-                Hijos = Actual.GenerarHijos();
-                Hijos = TratarRepetidos(Hijos, Abiertos, Cerrados);
-
-                foreach (CLEstado H in Hijos)
-                {
-                    Abiertos.Add(H);
-                }
-            }
-
-            return Solucion;
+            Camino.Reverse();
+            return Camino;
         }
         #endregion
     }

@@ -42,11 +42,14 @@
             this.BTNDesordenar = new System.Windows.Forms.Button();
             this.TMRReloj = new System.Windows.Forms.Timer(this.components);
             this.BTNGenerarHijos = new System.Windows.Forms.Button();
-
             this.BTNEsFinal = new System.Windows.Forms.Button();
-
+            this.BTNAnchuraPrioritaria = new System.Windows.Forms.Button();
+            this.TMRResuelve = new System.Windows.Forms.Timer(this.components);
+            this.BTNResuelve = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            
+            // 
+            // LBL00
+            // 
             this.LBL00.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBL00.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBL00.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -58,7 +61,9 @@
             this.LBL00.Text = "1";
             this.LBL00.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBL00.Click += new System.EventHandler(this.LBL00_Click);
-            
+            // 
+            // LBL01
+            // 
             this.LBL01.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBL01.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBL01.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -70,7 +75,9 @@
             this.LBL01.Text = "2";
             this.LBL01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBL01.Click += new System.EventHandler(this.LBL01_Click);
-           
+            // 
+            // LBL02
+            // 
             this.LBL02.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBL02.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBL02.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -82,7 +89,9 @@
             this.LBL02.Text = "3";
             this.LBL02.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBL02.Click += new System.EventHandler(this.LBL02_Click);
-           
+            // 
+            // LBL12
+            // 
             this.LBL12.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBL12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBL12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -94,7 +103,9 @@
             this.LBL12.Text = "6";
             this.LBL12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBL12.Click += new System.EventHandler(this.LBL12_Click);
-            
+            // 
+            // LBL11
+            // 
             this.LBL11.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBL11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBL11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -106,7 +117,9 @@
             this.LBL11.Text = "5";
             this.LBL11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBL11.Click += new System.EventHandler(this.LBL11_Click);
-            
+            // 
+            // LBL10
+            // 
             this.LBL10.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBL10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBL10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -118,7 +131,9 @@
             this.LBL10.Text = "4";
             this.LBL10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBL10.Click += new System.EventHandler(this.LBL10_Click);
-             
+            // 
+            // LBL22
+            // 
             this.LBL22.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBL22.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBL22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -130,7 +145,9 @@
             this.LBL22.Text = "0";
             this.LBL22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBL22.Click += new System.EventHandler(this.LBL22_Click);
-            
+            // 
+            // LBL21
+            // 
             this.LBL21.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBL21.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBL21.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -142,7 +159,9 @@
             this.LBL21.Text = "8";
             this.LBL21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBL21.Click += new System.EventHandler(this.LBL21_Click);
-             
+            // 
+            // LBL20
+            // 
             this.LBL20.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBL20.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBL20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -154,7 +173,9 @@
             this.LBL20.Text = "7";
             this.LBL20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBL20.Click += new System.EventHandler(this.LBL20_Click);
-             
+            // 
+            // LBLContador
+            // 
             this.LBLContador.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBLContador.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBLContador.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -165,7 +186,9 @@
             this.LBLContador.TabIndex = 9;
             this.LBLContador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBLContador.Click += new System.EventHandler(this.TMRReloj_Tick);
-             
+            // 
+            // BTNDesordenar
+            // 
             this.BTNDesordenar.Location = new System.Drawing.Point(396, 67);
             this.BTNDesordenar.Name = "BTNDesordenar";
             this.BTNDesordenar.Size = new System.Drawing.Size(107, 23);
@@ -173,9 +196,13 @@
             this.BTNDesordenar.Text = "Desordenar";
             this.BTNDesordenar.UseVisualStyleBackColor = true;
             this.BTNDesordenar.Click += new System.EventHandler(this.BTNDesordenar_Click);
-             
+            // 
+            // TMRReloj
+            // 
             this.TMRReloj.Tick += new System.EventHandler(this.TMRReloj_Tick);
-             
+            // 
+            // BTNGenerarHijos
+            // 
             this.BTNGenerarHijos.Location = new System.Drawing.Point(396, 211);
             this.BTNGenerarHijos.Name = "BTNGenerarHijos";
             this.BTNGenerarHijos.Size = new System.Drawing.Size(107, 23);
@@ -183,7 +210,9 @@
             this.BTNGenerarHijos.Text = "Generar Hijos";
             this.BTNGenerarHijos.UseVisualStyleBackColor = true;
             this.BTNGenerarHijos.Click += new System.EventHandler(this.BTNGenerarHijos_Click);
-         
+            // 
+            // BTNEsFinal
+            // 
             this.BTNEsFinal.Location = new System.Drawing.Point(396, 240);
             this.BTNEsFinal.Name = "BTNEsFinal";
             this.BTNEsFinal.Size = new System.Drawing.Size(107, 23);
@@ -191,10 +220,39 @@
             this.BTNEsFinal.Text = "Es Final";
             this.BTNEsFinal.UseVisualStyleBackColor = true;
             this.BTNEsFinal.Click += new System.EventHandler(this.BTNEsFinal_Click);
-        
+            // 
+            // BTNAnchuraPrioritaria
+            // 
+            this.BTNAnchuraPrioritaria.Location = new System.Drawing.Point(396, 269);
+            this.BTNAnchuraPrioritaria.Name = "BTNAnchuraPrioritaria";
+            this.BTNAnchuraPrioritaria.Size = new System.Drawing.Size(107, 23);
+            this.BTNAnchuraPrioritaria.TabIndex = 13;
+            this.BTNAnchuraPrioritaria.Text = "Anchura";
+            this.BTNAnchuraPrioritaria.UseVisualStyleBackColor = true;
+            this.BTNAnchuraPrioritaria.Click += new System.EventHandler(this.BTNAnchuraPrioritaria_Click);
+            // 
+            // TMRResuelve
+            // 
+            this.TMRResuelve.Interval = 500;
+            this.TMRResuelve.Tick += new System.EventHandler(this.TMRResuelve_Tick);
+            // 
+            // BTNResuelve
+            // 
+            this.BTNResuelve.Location = new System.Drawing.Point(396, 299);
+            this.BTNResuelve.Name = "BTNResuelve";
+            this.BTNResuelve.Size = new System.Drawing.Size(107, 23);
+            this.BTNResuelve.TabIndex = 14;
+            this.BTNResuelve.Text = "Resolver";
+            this.BTNResuelve.UseVisualStyleBackColor = true;
+            this.BTNResuelve.Click += new System.EventHandler(this.BTNResuelve_Click);
+            // 
+            // Form1OchoPuzzle
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 450);
+            this.Controls.Add(this.BTNResuelve);
+            this.Controls.Add(this.BTNAnchuraPrioritaria);
             this.Controls.Add(this.BTNEsFinal);
             this.Controls.Add(this.BTNGenerarHijos);
             this.Controls.Add(this.BTNDesordenar);
@@ -232,7 +290,9 @@
         private System.Windows.Forms.Button BTNGenerarHijos;
 
         private System.Windows.Forms.Button BTNEsFinal;
-
+        private System.Windows.Forms.Button BTNAnchuraPrioritaria;
+        private System.Windows.Forms.Timer TMRResuelve;
+        private System.Windows.Forms.Button BTNResuelve;
     }
 }
 

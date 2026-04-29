@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace PuzzleOcho
 {
@@ -15,6 +17,8 @@ namespace PuzzleOcho
         private int contador = 0;
         private String pos0;
         private String[,] posiciones;
+        private List<CLEstado> _solucion = new List<CLEstado>();
+        private int _posicionSolucion = 0;
         public Form1OchoPuzzle()
         {
             InitializeComponent();
@@ -453,6 +457,83 @@ namespace PuzzleOcho
 
         }
 
-        
+        private void BTNAnchuraPrioritaria_Click(object sender, EventArgs e)
+        {
+            CLEstado Inicial = new CLEstado(Convert.ToInt32(LBL00.Text),
+                                            Convert.ToInt32(LBL01.Text),
+                                            Convert.ToInt32(LBL02.Text),
+                                            Convert.ToInt32(LBL10.Text),
+                                            Convert.ToInt32(LBL11.Text),
+                                            Convert.ToInt32(LBL12.Text),
+                                            Convert.ToInt32(LBL20.Text),
+                                            Convert.ToInt32(LBL21.Text),
+                                            Convert.ToInt32(LBL22.Text)
+                                           );
+            List<CLEstado> Resultado = CLAlgoritmosDeBusqueda.AnchuraPrioritaria(Inicial);
+            if (Resultado.Count > 0)
+            {
+                MessageBox.Show("Solucion Encontrada");
+            }
+            else
+            {
+                MessageBox.Show("Solucion No Encontrada");
+            }
+        }
+        private void MostrarEstado(CLEstado E)
+        {
+            LBL00.Text = E.tablero[0, 0].ToString();
+            LBL01.Text = E.tablero[0, 1].ToString();
+            LBL02.Text = E.tablero[0, 2].ToString();
+
+            LBL10.Text = E.tablero[1, 0].ToString();
+            LBL11.Text = E.tablero[1, 1].ToString();
+            LBL12.Text = E.tablero[1, 2].ToString();
+
+            LBL20.Text = E.tablero[2, 0].ToString();
+            LBL21.Text = E.tablero[2, 1].ToString();
+            LBL22.Text = E.tablero[2, 2].ToString();
+        }
+
+        private void TMRResuelve_Tick(object sender, EventArgs e)
+        {
+            if (_posicionSolucion < _solucion.Count)
+            {
+                MostrarEstado(_solucion[_posicionSolucion]);
+                _posicionSolucion++;
+            }
+            else
+            {
+                TMRResuelve.Stop();
+                MessageBox.Show("Problema resuelto");
+            }
+        }
+
+        private void BTNResuelve_Click(object sender, EventArgs e)
+        {
+            CLEstado Inicial = new CLEstado(
+                Convert.ToInt32(LBL00.Text),
+                Convert.ToInt32(LBL01.Text),
+                Convert.ToInt32(LBL02.Text),
+                Convert.ToInt32(LBL10.Text),
+                Convert.ToInt32(LBL11.Text),
+                Convert.ToInt32(LBL12.Text),
+                Convert.ToInt32(LBL20.Text),
+                Convert.ToInt32(LBL21.Text),
+                Convert.ToInt32(LBL22.Text)
+            );
+
+            _solucion = CLAlgoritmosDeBusqueda.AnchuraPrioritaria(Inicial);
+
+            if (_solucion.Count == 0)
+            {
+                MessageBox.Show("No se encontró solución");
+            }
+            else
+            {
+                MessageBox.Show("Solución encontrada");
+                _posicionSolucion = 1;
+                TMRResuelve.Start();
+            }
+        }
     }
 }
