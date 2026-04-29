@@ -459,24 +459,30 @@ namespace PuzzleOcho
 
         private void BTNAnchuraPrioritaria_Click(object sender, EventArgs e)
         {
-            CLEstado Inicial = new CLEstado(Convert.ToInt32(LBL00.Text),
-                                            Convert.ToInt32(LBL01.Text),
-                                            Convert.ToInt32(LBL02.Text),
-                                            Convert.ToInt32(LBL10.Text),
-                                            Convert.ToInt32(LBL11.Text),
-                                            Convert.ToInt32(LBL12.Text),
-                                            Convert.ToInt32(LBL20.Text),
-                                            Convert.ToInt32(LBL21.Text),
-                                            Convert.ToInt32(LBL22.Text)
-                                           );
-            List<CLEstado> Resultado = CLAlgoritmosDeBusqueda.AnchuraPrioritaria(Inicial);
-            if (Resultado.Count > 0)
+            CLEstado Inicial = new CLEstado(
+                Convert.ToInt32(LBL00.Text),
+                Convert.ToInt32(LBL01.Text),
+                Convert.ToInt32(LBL02.Text),
+                Convert.ToInt32(LBL10.Text),
+                Convert.ToInt32(LBL11.Text),
+                Convert.ToInt32(LBL12.Text),
+                Convert.ToInt32(LBL20.Text),
+                Convert.ToInt32(LBL21.Text),
+                Convert.ToInt32(LBL22.Text)
+            );
+
+            _solucion = CLAlgoritmosDeBusqueda.AnchuraPrioritaria(Inicial);
+
+            if (_solucion.Count == 0)
             {
-                MessageBox.Show("Solucion Encontrada");
+                MessageBox.Show("Solucion No Encontrada");
             }
             else
             {
-                MessageBox.Show("Solucion No Encontrada");
+                MessageBox.Show("Solucion Encontrada");
+                TMRResuelve.Stop();
+                _posicionSolucion = 1;
+                TMRResuelve.Start();
             }
         }
         private void MostrarEstado(CLEstado E)
@@ -508,32 +514,6 @@ namespace PuzzleOcho
             }
         }
 
-        private void BTNResuelve_Click(object sender, EventArgs e)
-        {
-            CLEstado Inicial = new CLEstado(
-                Convert.ToInt32(LBL00.Text),
-                Convert.ToInt32(LBL01.Text),
-                Convert.ToInt32(LBL02.Text),
-                Convert.ToInt32(LBL10.Text),
-                Convert.ToInt32(LBL11.Text),
-                Convert.ToInt32(LBL12.Text),
-                Convert.ToInt32(LBL20.Text),
-                Convert.ToInt32(LBL21.Text),
-                Convert.ToInt32(LBL22.Text)
-            );
-
-            _solucion = CLAlgoritmosDeBusqueda.AnchuraPrioritaria(Inicial);
-
-            if (_solucion.Count == 0)
-            {
-                MessageBox.Show("No se encontró solución");
-            }
-            else
-            {
-                MessageBox.Show("Solución encontrada");
-                _posicionSolucion = 1;
-                TMRResuelve.Start();
-            }
-        }
+        
     }
 }

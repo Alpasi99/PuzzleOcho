@@ -71,7 +71,6 @@ namespace PuzzleOcho
         {
             List<CLEstado> Respuesta = new List<CLEstado>();
             String pos0 = "";
-            int[,] aux = new int[3, 3];
             for (int i = 0; i < 3; i++)
                 for (int j = 0; j < 3; j++)
                     if (this._tablero[i, j] == 0)
@@ -161,23 +160,24 @@ namespace PuzzleOcho
                     A.padre = this;
                     Respuesta.Add(A);
                     A = new CLEstado(this._tablero[0, 0],
-                                     this._tablero[0, 1],
-                                     this._tablero[0, 2],
-                                     this._tablero[1, 0],
-                                     this._tablero[1, 1],
-                                     this._tablero[1, 2],
-                                     this._tablero[2, 0],
-                                     this._tablero[2, 1],
-                                     this._tablero[2, 2]);
+                                      this._tablero[0, 1],
+                                      this._tablero[1, 2],
+                                      this._tablero[1, 0],
+                                      this._tablero[1, 1],
+                                      this._tablero[0, 2],
+                                      this._tablero[2, 0],
+                                      this._tablero[2, 1],
+                                      this._tablero[2, 2]);
                     A.nivel = this.nivel + 1;
                     A.padre = this;
                     Respuesta.Add(A);
                     break;
                 case "10":
-                    A = new CLEstado(this._tablero[0, 1],
-                                     this._tablero[0, 0],
+                    // Arriba
+                    A = new CLEstado(this._tablero[1, 0],
+                                     this._tablero[0, 1],
                                      this._tablero[0, 2],
-                                     this._tablero[1, 0],
+                                     this._tablero[0, 0],
                                      this._tablero[1, 1],
                                      this._tablero[1, 2],
                                      this._tablero[2, 0],
@@ -187,6 +187,7 @@ namespace PuzzleOcho
                     A.padre = this;
                     Respuesta.Add(A);
 
+                    // Derecha
                     A = new CLEstado(this._tablero[0, 0],
                                      this._tablero[0, 1],
                                      this._tablero[0, 2],
@@ -200,6 +201,7 @@ namespace PuzzleOcho
                     A.padre = this;
                     Respuesta.Add(A);
 
+                    // Abajo
                     A = new CLEstado(this._tablero[0, 0],
                                      this._tablero[0, 1],
                                      this._tablero[0, 2],
@@ -449,6 +451,7 @@ namespace PuzzleOcho
             Camino.Reverse();
             return Camino;
         }
+
         #endregion
     }
 }

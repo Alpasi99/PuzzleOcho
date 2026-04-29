@@ -45,7 +45,6 @@
             this.BTNEsFinal = new System.Windows.Forms.Button();
             this.BTNAnchuraPrioritaria = new System.Windows.Forms.Button();
             this.TMRResuelve = new System.Windows.Forms.Timer(this.components);
-            this.BTNResuelve = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LBL00
@@ -236,22 +235,11 @@
             this.TMRResuelve.Interval = 500;
             this.TMRResuelve.Tick += new System.EventHandler(this.TMRResuelve_Tick);
             // 
-            // BTNResuelve
-            // 
-            this.BTNResuelve.Location = new System.Drawing.Point(396, 299);
-            this.BTNResuelve.Name = "BTNResuelve";
-            this.BTNResuelve.Size = new System.Drawing.Size(107, 23);
-            this.BTNResuelve.TabIndex = 14;
-            this.BTNResuelve.Text = "Resolver";
-            this.BTNResuelve.UseVisualStyleBackColor = true;
-            this.BTNResuelve.Click += new System.EventHandler(this.BTNResuelve_Click);
-            // 
             // Form1OchoPuzzle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 450);
-            this.Controls.Add(this.BTNResuelve);
             this.Controls.Add(this.BTNAnchuraPrioritaria);
             this.Controls.Add(this.BTNEsFinal);
             this.Controls.Add(this.BTNGenerarHijos);
@@ -292,7 +280,6 @@
         private System.Windows.Forms.Button BTNEsFinal;
         private System.Windows.Forms.Button BTNAnchuraPrioritaria;
         private System.Windows.Forms.Timer TMRResuelve;
-        private System.Windows.Forms.Button BTNResuelve;
     }
 }
 

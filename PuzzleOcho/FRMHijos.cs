@@ -22,6 +22,7 @@ namespace PuzzleOcho
         public FRMHijos()
         {
             InitializeComponent();
+            this.Load += FRMHijos_Load;
         }
         #endregion
 
