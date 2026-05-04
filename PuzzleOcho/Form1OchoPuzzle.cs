@@ -18,7 +18,10 @@ namespace PuzzleOcho
         private String pos0;
         private String[,] posiciones;
         private List<CLEstado> _solucion = new List<CLEstado>();
-        private int _posicionSolucion = 0;
+        private List<CLEstado> _reversa = new List<CLEstado>();
+        private int _posicionReversa = 0;
+        private bool _modoReversa = false;
+        private int _posicionSolucion = 1;
         public Form1OchoPuzzle()
         {
             InitializeComponent();
@@ -475,11 +478,15 @@ namespace PuzzleOcho
 
             if (_solucion.Count == 0)
             {
-                MessageBox.Show("Solucion No Encontrada");
+                MessageBox.Show("Solución no encontrada");
             }
             else
             {
-                MessageBox.Show("Solucion Encontrada");
+                int nivelEncontrado = _solucion[_solucion.Count - 1].nivel;
+
+                MessageBox.Show("Solución encontrada en el nivel: " + nivelEncontrado);
+
+                _modoReversa = false;
                 TMRResuelve.Stop();
                 _posicionSolucion = 1;
                 TMRResuelve.Start();
@@ -502,18 +509,54 @@ namespace PuzzleOcho
 
         private void TMRResuelve_Tick(object sender, EventArgs e)
         {
-            if (_posicionSolucion < _solucion.Count)
+            if (!_modoReversa)
             {
-                MostrarEstado(_solucion[_posicionSolucion]);
-                _posicionSolucion++;
+                if (_posicionSolucion < _solucion.Count)
+                {
+                    MostrarEstado(_solucion[_posicionSolucion]);
+                    _posicionSolucion++;
+                }
+                else
+                {
+                    TMRResuelve.Stop();
+
+                    MessageBox.Show("Es el estado final :) ");
+
+                    _reversa = ConstruirCaminoInverso(_solucion[_solucion.Count - 1]);
+                    _posicionReversa = 1;
+                    _modoReversa = true;
+
+                    TMRResuelve.Start();
+                }
             }
             else
             {
-                TMRResuelve.Stop();
-                MessageBox.Show("Problema resuelto");
+                if (_posicionReversa < _reversa.Count)
+                {
+                    MostrarEstado(_reversa[_posicionReversa]);
+                    _posicionReversa++;
+                }
+                else
+                {
+                    TMRResuelve.Stop();
+                    _modoReversa = false;
+                    MessageBox.Show("Estado Inicial");
+                }
             }
         }
 
-        
+        private List<CLEstado> ConstruirCaminoInverso(CLEstado estadoFinal)
+        {
+            List<CLEstado> caminoInverso = new List<CLEstado>();
+            CLEstado aux = estadoFinal;
+
+            while (aux != null)
+            {
+                caminoInverso.Add(aux);
+                aux = aux.padre;
+            }
+
+            return caminoInverso;
+        }
     }
 }

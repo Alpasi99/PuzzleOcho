@@ -178,7 +178,7 @@
             this.LBLContador.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBLContador.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBLContador.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LBLContador.Location = new System.Drawing.Point(402, 111);
+            this.LBLContador.Location = new System.Drawing.Point(366, 94);
             this.LBLContador.Name = "LBLContador";
             this.LBLContador.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.LBLContador.Size = new System.Drawing.Size(88, 83);
@@ -188,7 +188,7 @@
             // 
             // BTNDesordenar
             // 
-            this.BTNDesordenar.Location = new System.Drawing.Point(396, 67);
+            this.BTNDesordenar.Location = new System.Drawing.Point(360, 50);
             this.BTNDesordenar.Name = "BTNDesordenar";
             this.BTNDesordenar.Size = new System.Drawing.Size(107, 23);
             this.BTNDesordenar.TabIndex = 10;
@@ -202,7 +202,7 @@
             // 
             // BTNGenerarHijos
             // 
-            this.BTNGenerarHijos.Location = new System.Drawing.Point(396, 211);
+            this.BTNGenerarHijos.Location = new System.Drawing.Point(360, 194);
             this.BTNGenerarHijos.Name = "BTNGenerarHijos";
             this.BTNGenerarHijos.Size = new System.Drawing.Size(107, 23);
             this.BTNGenerarHijos.TabIndex = 11;
@@ -212,7 +212,7 @@
             // 
             // BTNEsFinal
             // 
-            this.BTNEsFinal.Location = new System.Drawing.Point(396, 240);
+            this.BTNEsFinal.Location = new System.Drawing.Point(360, 223);
             this.BTNEsFinal.Name = "BTNEsFinal";
             this.BTNEsFinal.Size = new System.Drawing.Size(107, 23);
             this.BTNEsFinal.TabIndex = 12;
@@ -222,7 +222,7 @@
             // 
             // BTNAnchuraPrioritaria
             // 
-            this.BTNAnchuraPrioritaria.Location = new System.Drawing.Point(396, 269);
+            this.BTNAnchuraPrioritaria.Location = new System.Drawing.Point(360, 252);
             this.BTNAnchuraPrioritaria.Name = "BTNAnchuraPrioritaria";
             this.BTNAnchuraPrioritaria.Size = new System.Drawing.Size(107, 23);
             this.BTNAnchuraPrioritaria.TabIndex = 13;
@@ -239,7 +239,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 450);
+            this.ClientSize = new System.Drawing.Size(548, 306);
             this.Controls.Add(this.BTNAnchuraPrioritaria);
             this.Controls.Add(this.BTNEsFinal);
             this.Controls.Add(this.BTNGenerarHijos);
@@ -271,7 +271,6 @@
         private System.Windows.Forms.Label LBL22;
         private System.Windows.Forms.Label LBL21;
         private System.Windows.Forms.Label LBL20;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LBLContador;
         private System.Windows.Forms.Button BTNDesordenar;
         private System.Windows.Forms.Timer TMRReloj;
