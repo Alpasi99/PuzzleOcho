@@ -45,6 +45,9 @@
             this.BTNEsFinal = new System.Windows.Forms.Button();
             this.BTNAnchuraPrioritaria = new System.Windows.Forms.Button();
             this.TMRResuelve = new System.Windows.Forms.Timer(this.components);
+            this.BTNProfundidadLimitada = new System.Windows.Forms.Button();
+            this.NUMNivel = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.NUMNivel)).BeginInit();
             this.SuspendLayout();
             // 
             // LBL00
@@ -178,7 +181,7 @@
             this.LBLContador.BackColor = System.Drawing.SystemColors.Highlight;
             this.LBLContador.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LBLContador.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LBLContador.Location = new System.Drawing.Point(366, 94);
+            this.LBLContador.Location = new System.Drawing.Point(366, 65);
             this.LBLContador.Name = "LBLContador";
             this.LBLContador.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.LBLContador.Size = new System.Drawing.Size(88, 83);
@@ -188,7 +191,7 @@
             // 
             // BTNDesordenar
             // 
-            this.BTNDesordenar.Location = new System.Drawing.Point(360, 50);
+            this.BTNDesordenar.Location = new System.Drawing.Point(360, 37);
             this.BTNDesordenar.Name = "BTNDesordenar";
             this.BTNDesordenar.Size = new System.Drawing.Size(107, 23);
             this.BTNDesordenar.TabIndex = 10;
@@ -202,7 +205,7 @@
             // 
             // BTNGenerarHijos
             // 
-            this.BTNGenerarHijos.Location = new System.Drawing.Point(360, 194);
+            this.BTNGenerarHijos.Location = new System.Drawing.Point(360, 155);
             this.BTNGenerarHijos.Name = "BTNGenerarHijos";
             this.BTNGenerarHijos.Size = new System.Drawing.Size(107, 23);
             this.BTNGenerarHijos.TabIndex = 11;
@@ -212,7 +215,7 @@
             // 
             // BTNEsFinal
             // 
-            this.BTNEsFinal.Location = new System.Drawing.Point(360, 223);
+            this.BTNEsFinal.Location = new System.Drawing.Point(360, 184);
             this.BTNEsFinal.Name = "BTNEsFinal";
             this.BTNEsFinal.Size = new System.Drawing.Size(107, 23);
             this.BTNEsFinal.TabIndex = 12;
@@ -222,7 +225,7 @@
             // 
             // BTNAnchuraPrioritaria
             // 
-            this.BTNAnchuraPrioritaria.Location = new System.Drawing.Point(360, 252);
+            this.BTNAnchuraPrioritaria.Location = new System.Drawing.Point(360, 213);
             this.BTNAnchuraPrioritaria.Name = "BTNAnchuraPrioritaria";
             this.BTNAnchuraPrioritaria.Size = new System.Drawing.Size(107, 23);
             this.BTNAnchuraPrioritaria.TabIndex = 13;
@@ -235,11 +238,30 @@
             this.TMRResuelve.Interval = 500;
             this.TMRResuelve.Tick += new System.EventHandler(this.TMRResuelve_Tick);
             // 
+            // BTNProfundidadLimitada
+            // 
+            this.BTNProfundidadLimitada.Location = new System.Drawing.Point(360, 243);
+            this.BTNProfundidadLimitada.Name = "BTNProfundidadLimitada";
+            this.BTNProfundidadLimitada.Size = new System.Drawing.Size(107, 36);
+            this.BTNProfundidadLimitada.TabIndex = 14;
+            this.BTNProfundidadLimitada.Text = "Profundidad Limited";
+            this.BTNProfundidadLimitada.UseVisualStyleBackColor = true;
+            this.BTNProfundidadLimitada.Click += new System.EventHandler(this.BTNProfundidadLimitada_Click);
+            // 
+            // NUMNivel
+            // 
+            this.NUMNivel.Location = new System.Drawing.Point(473, 250);
+            this.NUMNivel.Name = "NUMNivel";
+            this.NUMNivel.Size = new System.Drawing.Size(39, 20);
+            this.NUMNivel.TabIndex = 15;
+            // 
             // Form1OchoPuzzle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 306);
+            this.Controls.Add(this.NUMNivel);
+            this.Controls.Add(this.BTNProfundidadLimitada);
             this.Controls.Add(this.BTNAnchuraPrioritaria);
             this.Controls.Add(this.BTNEsFinal);
             this.Controls.Add(this.BTNGenerarHijos);
@@ -256,6 +278,7 @@
             this.Controls.Add(this.LBL00);
             this.Name = "Form1OchoPuzzle";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.NUMNivel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,6 +302,8 @@
         private System.Windows.Forms.Button BTNEsFinal;
         private System.Windows.Forms.Button BTNAnchuraPrioritaria;
         private System.Windows.Forms.Timer TMRResuelve;
+        private System.Windows.Forms.Button BTNProfundidadLimitada;
+        private System.Windows.Forms.NumericUpDown NUMNivel;
     }
 }
 
