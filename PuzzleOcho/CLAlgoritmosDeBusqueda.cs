@@ -166,5 +166,55 @@ namespace PuzzleOcho
             return HijosDepurado;
         }
 
+        public static List<CLEstado> ProfundidadIterativa(CLEstado Inicial, int LimiteMaximo)
+        {
+            List<CLEstado> Solucion = new List<CLEstado>();
+
+            
+            for (int prof = 1; prof <= LimiteMaximo; prof++)
+            {
+                List<CLEstado> Abiertos = new List<CLEstado>();
+                List<CLEstado> Cerrados = new List<CLEstado>();
+                List<CLEstado> Hijos = new List<CLEstado>();
+
+                CLEstado Actual = Inicial;
+                Abiertos.Add(Inicial);
+
+                while (Abiertos.Count > 0)
+                {
+                    Actual = Abiertos[0];
+                    Abiertos.RemoveAt(0);
+
+                    
+                    if (Actual.EsFinal())
+                    {
+                        Solucion.Add(Actual);
+                        while (Actual.padre != null)
+                        {
+                            Solucion.Add(Actual.padre);
+                            Actual = Actual.padre;
+                        }
+                        Solucion.Reverse();
+                        return Solucion; 
+                    }
+
+                    Cerrados.Add(Actual);
+
+                    if (Actual.nivel < prof)
+                    {
+                        Hijos = Actual.GenerarHijos();
+
+                        Hijos = TratarRepetidosProfundidad(Hijos, Abiertos, Cerrados);
+
+                        foreach (CLEstado a in Hijos)
+                        {
+                            Abiertos.Insert(0, a);
+                        }
+                    }
+                }
+            }
+
+            return Solucion;
+        }
     }
 }
