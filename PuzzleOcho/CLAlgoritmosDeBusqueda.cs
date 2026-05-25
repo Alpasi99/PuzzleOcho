@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace PuzzleOcho
 {
@@ -166,55 +167,26 @@ namespace PuzzleOcho
             return HijosDepurado;
         }
 
-        public static List<CLEstado> ProfundidadIterativa(CLEstado Inicial, int LimiteMaximo)
+        public static List<CLEstado> ProfundidadIterativa(CLEstado inicial, int limiteMaximo)
         {
-            List<CLEstado> Solucion = new List<CLEstado>();
+            List<CLEstado> solucion = new List<CLEstado>();
 
-            
-            for (int prof = 1; prof <= LimiteMaximo; prof++)
+            for (int i = 0; i <= limiteMaximo; i++)
             {
-                List<CLEstado> Abiertos = new List<CLEstado>();
-                List<CLEstado> Cerrados = new List<CLEstado>();
-                List<CLEstado> Hijos = new List<CLEstado>();
+                MessageBox.Show("Explorando nivel: " + i);
 
-                CLEstado Actual = Inicial;
-                Abiertos.Add(Inicial);
+                solucion = ProfundidadLimitada(inicial, i);
 
-                while (Abiertos.Count > 0)
+                if (solucion.Count > 0)
                 {
-                    Actual = Abiertos[0];
-                    Abiertos.RemoveAt(0);
-
-                    
-                    if (Actual.EsFinal())
-                    {
-                        Solucion.Add(Actual);
-                        while (Actual.padre != null)
-                        {
-                            Solucion.Add(Actual.padre);
-                            Actual = Actual.padre;
-                        }
-                        Solucion.Reverse();
-                        return Solucion; 
-                    }
-
-                    Cerrados.Add(Actual);
-
-                    if (Actual.nivel < prof)
-                    {
-                        Hijos = Actual.GenerarHijos();
-
-                        Hijos = TratarRepetidosProfundidad(Hijos, Abiertos, Cerrados);
-
-                        foreach (CLEstado a in Hijos)
-                        {
-                            Abiertos.Insert(0, a);
-                        }
-                    }
+                    MessageBox.Show("Solución encontrada en el nivel: " + i);
+                    return solucion;
                 }
             }
 
-            return Solucion;
+            MessageBox.Show("No se encontró solución dentro del límite establecido");
+
+            return new List<CLEstado>();
         }
     }
 }

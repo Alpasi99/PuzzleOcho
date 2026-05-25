@@ -599,7 +599,8 @@ namespace PuzzleOcho
 
         private void BTNProfundidadIterativa_Click(object sender, EventArgs e)
         {
-            // 1. Capturamos el Estado Inicial desde las etiquetas del tablero gráfico
+            int limite = Convert.ToInt32(NUMNivelPI.Value);
+
             CLEstado Inicial = new CLEstado(
                 Convert.ToInt32(LBL00.Text),
                 Convert.ToInt32(LBL01.Text),
@@ -612,27 +613,10 @@ namespace PuzzleOcho
                 Convert.ToInt32(LBL22.Text)
             );
 
-            // 2. LEER DINÁMICAMENTE LA COTA MÁXIMA DESDE EL NUMERICUPDOWN
-            // Convertimos el valor decimal del control a un entero
-            int limiteMaximo = Convert.ToInt32(NUMNivelPI.Value);
+            _solucion = CLAlgoritmosDeBusqueda.ProfundidadIterativa(Inicial, limite);
 
-            // 3. Ejecutamos el algoritmo pasando el límite dinámico
-            _solucion = CLAlgoritmosDeBusqueda.ProfundidadIterativa(Inicial, limiteMaximo);
-
-            // 4. Evaluamos el resultado obtenido
-            if (_solucion.Count == 0)
+            if (_solucion.Count > 0)
             {
-                MessageBox.Show("No se encontró solución dentro del rango establecido (" + limiteMaximo + " niveles). Incremente el límite en el control.");
-            }
-            else
-            {
-                // Identificamos en qué profundidad exacta se halló el estado meta
-                int nivelEncontrado = _solucion[_solucion.Count - 1].nivel;
-                MessageBox.Show("¡Solución óptima encontrada! Hallada en el nivel: " + nivelEncontrado);
-
-                // Activamos la animación paso a paso en el tablero
-                _modoReversa = false;
-                TMRResuelve.Stop();
                 _posicionSolucion = 1;
                 TMRResuelve.Start();
             }
