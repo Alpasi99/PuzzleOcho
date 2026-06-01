@@ -451,7 +451,58 @@ namespace PuzzleOcho
             Camino.Reverse();
             return Camino;
         }
+        public int H1()
+        {
+            int h1 = 0;
 
+            int[,] objetivo =
+            {
+        {1,2,3},
+        {4,5,6},
+        {7,8,0}
+    };
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (tablero[i, j] != 0 &&
+                        tablero[i, j] != objetivo[i, j])
+                    {
+                        h1++;
+                    }
+                }
+            }
+
+            return h1;
+        }
+        public int H2()
+        {
+            int h2 = 0;
+
+            int[] filaFinal = { 2, 0, 0, 0, 1, 1, 1, 2, 2 };
+            int[] colFinal = { 2, 0, 1, 2, 0, 1, 2, 0, 1 };
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    int ficha = tablero[i, j];
+
+                    if (ficha != 0)
+                    {
+                        h2 += Math.Abs(i - filaFinal[ficha]) +
+                              Math.Abs(j - colFinal[ficha]);
+                    }
+                }
+            }
+
+            return h2;
+        }
+        public int H3()
+        {
+            return H1() + H2();
+        }
         #endregion
     }
 }
